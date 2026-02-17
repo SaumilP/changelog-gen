@@ -1,14 +1,13 @@
-use chrono::Utc;
-use anyhow::Result;
-use crate::parser::GroupedCommits;
 use crate::infrastructure::github;
+use crate::parser::GroupedCommits;
+use anyhow::Result;
+use chrono::Utc;
 
 pub fn generate(
     grouped: GroupedCommits,
     release: Option<String>,
     github_enabled: bool,
 ) -> Result<String> {
-
     let date = Utc::now().format("%Y-%m-%d");
 
     let mut output = String::new();

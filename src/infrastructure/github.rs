@@ -1,6 +1,6 @@
+use anyhow::Result;
 use reqwest::Client;
 use serde::Deserialize;
-use anyhow::Result;
 
 #[derive(Deserialize)]
 pub struct PullRequest {
@@ -11,10 +11,7 @@ pub struct PullRequest {
 pub async fn fetch_pr(repo: &str, number: u32) -> Result<PullRequest> {
     let client = Client::new();
 
-    let url = format!(
-        "https://api.github.com/repos/{}/pulls/{}",
-        repo, number
-    );
+    let url = format!("https://api.github.com/repos/{}/pulls/{}", repo, number);
 
     let res = client
         .get(&url)

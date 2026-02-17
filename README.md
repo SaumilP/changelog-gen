@@ -6,7 +6,7 @@
 
 # 🚀 changelog-gen
 
-A production-grade Rust CLI tool to generate beautiful, semantic changelogs from Git history with support for conventional commits, GitHub integration, and plugin extensibility.
+A Rust CLI tool to generate beautiful, semantic changelogs from Git history with support for conventional commits, GitHub integration, and plugin extensibility.
 
 ## ✨ Features
 

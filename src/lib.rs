@@ -1,12 +1,12 @@
+pub mod application;
 pub mod bootstrap;
 pub mod cli;
-pub mod application;
-pub mod domain;
-pub mod infrastructure;
-pub mod traits;
 pub mod config;
-pub mod parser;
+pub mod domain;
 pub mod error;
+pub mod infrastructure;
+pub mod parser;
+pub mod traits;
 
 pub use error::{ChangelogError, Result};
 

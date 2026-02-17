@@ -1,5 +1,5 @@
-use libloading::{Library, Symbol};
 use anyhow::Result;
+use libloading::{Library, Symbol};
 
 pub trait Plugin {
     fn name(&self) -> &str;
@@ -15,8 +15,7 @@ pub fn load_plugins(path: &str) -> Result<Vec<Box<dyn Plugin>>> {
         let entry = entry?;
         let lib = unsafe { Library::new(entry.path())? };
         unsafe {
-            let constructor: Symbol<PluginCreate> =
-                lib.get(b"create_plugin")?;
+            let constructor: Symbol<PluginCreate> = lib.get(b"create_plugin")?;
             plugins.push(constructor());
         }
     }

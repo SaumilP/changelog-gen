@@ -1,5 +1,5 @@
-use handlebars::Handlebars;
 use anyhow::Result;
+use handlebars::Handlebars;
 use std::fs;
 
 pub fn render(template_path: Option<&str>, data: &serde_json::Value) -> Result<String> {

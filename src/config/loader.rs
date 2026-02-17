@@ -1,6 +1,6 @@
+use crate::config::schema::Config;
 use anyhow::Result;
 use std::fs;
-use crate::config::schema::Config;
 
 pub fn load_config() -> Result<Config> {
     if std::path::Path::new("changelog.toml").exists() {

@@ -1,8 +1,7 @@
 /// Comprehensive error types for changelog-gen
-/// 
+///
 /// This module defines all error variants that can occur when using changelog-gen,
 /// providing clear error messages and error handling capabilities.
-
 use std::path::PathBuf;
 use thiserror::Error;
 

@@ -1,7 +1,7 @@
-use git2::Repository;
-use anyhow::Result;
-use crate::traits::git::GitRepository;
 use crate::domain::commit::Commit;
+use crate::traits::git::GitRepository;
+use anyhow::Result;
+use git2::Repository;
 
 pub struct Git2Repository;
 
