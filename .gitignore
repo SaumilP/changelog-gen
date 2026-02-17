@@ -1,0 +1,54 @@
+# Rust
+/target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+*.orig
+.sublime-workspace
+
+# OS
+Thumbs.db
+*.rpm
+*.deb
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+.#*
+*.log
+
+# Coverage
+*.profraw
+*.profdata
+/coverage/
+*.lcov
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+__pycache__/
+
+# Local configuration
+.env
+.env.local
+changelog.toml.local
+changelog.yaml.local
+
+# CI/CD
+.github/workflows/tmp/
+ci-artifacts/
+
+# Plugin directory
+plugins/

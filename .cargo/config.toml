@@ -1,0 +1,12 @@
+# Cargo metadata for changelog-gen
+name = "changelog-gen"
+version = "0.1.0"
+
+# Extended metadata for registry publishing
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+# Badges
+[package.metadata.badges]
+maintenance = { status = "actively-developed" }

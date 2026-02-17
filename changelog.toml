@@ -1,0 +1,9 @@
+[project]
+name = "changelog-gen"
+repository = "https://github.com/user/changelog-gen"
+
+[commit_types]
+feat = "✨ Features"
+fix = "🐛 Bug Fixes"
+docs = "📝 Documentation"
+refactor = "♻ Refactoring"
