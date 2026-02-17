@@ -2,7 +2,7 @@
 name = "changelog-gen"
 version = "0.1.0"
 edition = "2021"
-authors = ["Saumil Patel <saumil@example.com>"]
+authors = ["Saumil Patel <email2saumil2024@gmail.com>"]
 repository = "https://github.com/SaumilP/changelog-gen"
 homepage = "https://github.com/SaumilP/changelog-gen"
 documentation = "https://docs.rs/changelog-gen"

@@ -4,7 +4,7 @@
 
 **Please do not open public issues for security vulnerabilities.**
 
-Instead, please email security concerns to: security@example.com
+Instead, please email security concerns to: email2saumil2024@gmail.com
 
 Please include:
 
