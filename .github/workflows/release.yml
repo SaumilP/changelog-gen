@@ -39,10 +39,10 @@ jobs:
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             archive_ext: tar.gz
-          - os: macos-latest
+          - os: macos-13
             target: x86_64-apple-darwin
             archive_ext: tar.gz
-          - os: macos-latest
+          - os: macos-14
             target: aarch64-apple-darwin
             archive_ext: tar.gz
           - os: windows-latest
@@ -59,6 +59,12 @@ jobs:
           brew install openssl@3
           echo "OPENSSL_DIR=$(brew --prefix openssl@3)" >> $GITHUB_ENV
           echo "PKG_CONFIG_PATH=$(brew --prefix openssl@3)/lib/pkgconfig" >> $GITHUB_ENV
+      - name: Debug macOS toolchain env
+        if: runner.os == 'macOS'
+        run: |
+          uname -m
+          rustc -Vv
+          echo "OPENSSL_DIR=$OPENSSL_DIR"
       - uses: Swatinem/rust-cache@v2
       - name: Build
         run: cargo build --release --target ${{ matrix.target }} --bin changeloggen-cli
