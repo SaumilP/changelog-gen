@@ -161,8 +161,9 @@ async fn command_release(args: ReleaseArgs) -> Result<()> {
     let mut document = load_or_scaffold(&args.file)?;
 
     let new_version = match (args.version, args.bump.as_deref()) {
-        (Some(raw), None) => Version::parse(&raw)
-            .map_err(|_| ChangelogError::VersionParseError(raw.to_string()))?,
+        (Some(raw), None) => {
+            Version::parse(&raw).map_err(|_| ChangelogError::VersionParseError(raw.to_string()))?
+        }
         (None, Some(bump)) => {
             let base = document
                 .releases
@@ -214,11 +215,17 @@ async fn command_release(args: ReleaseArgs) -> Result<()> {
     Ok(())
 }
 
-fn command_show(file: &Path, version: Option<&str>, range: Option<&str>, converge: bool) -> Result<()> {
+fn command_show(
+    file: &Path,
+    version: Option<&str>,
+    range: Option<&str>,
+    converge: bool,
+) -> Result<()> {
     let document = load_or_scaffold(file)?;
 
     let mut selected: Vec<Release> = if let Some(raw) = version {
-        let target = Version::parse(raw).map_err(|_| ChangelogError::VersionParseError(raw.to_string()))?;
+        let target =
+            Version::parse(raw).map_err(|_| ChangelogError::VersionParseError(raw.to_string()))?;
         document
             .releases
             .iter()
@@ -230,8 +237,10 @@ fn command_show(file: &Path, version: Option<&str>, range: Option<&str>, converg
             ChangelogError::InvalidArguments("--range must use '<a>..<b>' format".to_string())
         })?;
 
-        let a = Version::parse(left).map_err(|_| ChangelogError::VersionParseError(left.to_string()))?;
-        let b = Version::parse(right).map_err(|_| ChangelogError::VersionParseError(right.to_string()))?;
+        let a = Version::parse(left)
+            .map_err(|_| ChangelogError::VersionParseError(left.to_string()))?;
+        let b = Version::parse(right)
+            .map_err(|_| ChangelogError::VersionParseError(right.to_string()))?;
         let (low, high) = if a <= b { (a, b) } else { (b, a) };
 
         document
@@ -274,7 +283,8 @@ fn command_remove(file: &Path, version: &str, yes: bool) -> Result<()> {
     }
 
     let mut document = load_or_scaffold(file)?;
-    let target = Version::parse(version).map_err(|_| ChangelogError::VersionParseError(version.to_string()))?;
+    let target = Version::parse(version)
+        .map_err(|_| ChangelogError::VersionParseError(version.to_string()))?;
 
     if !document.remove_version(&target) {
         return Err(ChangelogError::InvalidArguments(format!(

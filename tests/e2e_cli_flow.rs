@@ -34,7 +34,12 @@ fn release_generate_show_and_remove_flow() {
     run_git(dir.path(), &["tag", "v0.1.0"]);
     commit_file(dir.path(), "b.txt", "b1", "fix: resolve bug");
     commit_file(dir.path(), "c.txt", "c1", "fix: resolve bug");
-    commit_file(dir.path(), "d.txt", "d1", "chore: tooling cleanup !changelog");
+    commit_file(
+        dir.path(),
+        "d.txt",
+        "d1",
+        "chore: tooling cleanup !changelog",
+    );
 
     bin_cmd()
         .current_dir(dir.path())
@@ -99,13 +104,7 @@ fn release_generate_show_and_remove_flow() {
     bin_cmd()
         .current_dir(dir.path())
         .args([
-            "generate",
-            "--since",
-            "v0.1.0",
-            "--until",
-            "HEAD",
-            "--map",
-            "map.toml",
+            "generate", "--since", "v0.1.0", "--until", "HEAD", "--map", "map.toml",
         ])
         .assert()
         .success()

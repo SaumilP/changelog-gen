@@ -16,9 +16,7 @@ pub struct Note {
 
 pub fn should_ignore_commit(message: &str) -> bool {
     let lower = message.to_lowercase();
-    IGNORE_MARKERS
-        .iter()
-        .any(|marker| lower.contains(marker))
+    IGNORE_MARKERS.iter().any(|marker| lower.contains(marker))
 }
 
 pub fn parse_conventional_commit(message: &str) -> Option<(String, String)> {
@@ -80,10 +78,7 @@ pub fn notes_from_commits(
             let section = map_type_to_section(&kind, mapping);
             grouped.entry(section).or_default().push(description);
         } else {
-            grouped
-                .entry("Other".to_string())
-                .or_default()
-                .push(text);
+            grouped.entry("Other".to_string()).or_default().push(text);
         }
     }
 
@@ -115,7 +110,10 @@ pub fn dedupe_grouped_notes(
 }
 
 pub fn canonical_note_key(note: &str) -> String {
-    note.split_whitespace().collect::<Vec<_>>().join(" ").to_lowercase()
+    note.split_whitespace()
+        .collect::<Vec<_>>()
+        .join(" ")
+        .to_lowercase()
 }
 
 #[cfg(test)]

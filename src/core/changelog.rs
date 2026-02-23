@@ -135,9 +135,11 @@ impl ChangelogDocument {
                 if !current.starts_with("- ") {
                     return Err(ParseIssue {
                         line: idx + 1,
-                        expected: "a bullet note '- ...' or a section heading '### ...'".to_string(),
+                        expected: "a bullet note '- ...' or a section heading '### ...'"
+                            .to_string(),
                         found: current.to_string(),
-                        fix: "prefix notes with '- ' and group them under '### <Section>'".to_string(),
+                        fix: "prefix notes with '- ' and group them under '### <Section>'"
+                            .to_string(),
                     });
                 }
 
@@ -159,7 +161,10 @@ impl ChangelogDocument {
                         fix: "write text after '- '".to_string(),
                     });
                 }
-                sections.entry(current_section.clone()).or_default().push(note);
+                sections
+                    .entry(current_section.clone())
+                    .or_default()
+                    .push(note);
                 idx += 1;
             }
 
@@ -246,7 +251,11 @@ impl ChangelogDocument {
         self.releases.len() != previous
     }
 
-    pub fn upsert_release(&mut self, release: Release, override_existing: bool) -> Result<(), String> {
+    pub fn upsert_release(
+        &mut self,
+        release: Release,
+        override_existing: bool,
+    ) -> Result<(), String> {
         if let Some(idx) = self
             .releases
             .iter()
@@ -337,7 +346,10 @@ fn parse_release_heading(
     } else {
         let mut parts = rest.splitn(2, " - ");
         let version = parts.next().unwrap_or_default().trim().to_string();
-        let date = parts.next().map(|d| d.trim().to_string()).filter(|v| !v.is_empty());
+        let date = parts
+            .next()
+            .map(|d| d.trim().to_string())
+            .filter(|v| !v.is_empty());
         let header = if date.is_some() {
             HeaderFormat::Plain
         } else {
@@ -390,11 +402,9 @@ fn render_release_header(release: &Release) -> String {
             }
         }
         HeaderFormat::VersionOnly => format!("## [{}]", version),
-        HeaderFormat::Custom(template) => {
-            template
-                .replace("{version}", &version)
-                .replace("{date}", &date)
-        }
+        HeaderFormat::Custom(template) => template
+            .replace("{version}", &version)
+            .replace("{date}", &date),
     }
 }
 

@@ -2,7 +2,11 @@ use clap::{ArgGroup, Parser, Subcommand};
 use std::path::PathBuf;
 
 #[derive(Parser, Debug)]
-#[command(author, version, about = "Generate and maintain changelogs from git history")]
+#[command(
+    author,
+    version,
+    about = "Generate and maintain changelogs from git history"
+)]
 pub struct Cli {
     #[command(subcommand)]
     pub command: Commands,

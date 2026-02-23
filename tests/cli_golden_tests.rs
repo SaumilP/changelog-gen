@@ -45,8 +45,11 @@ fn new_creates_scaffold_and_validate_passes() {
 #[test]
 fn validate_fails_with_human_friendly_error() {
     let dir = tempdir().expect("tempdir");
-    fs::write(dir.path().join("CHANGELOG.md"), "# Changelog\n\n## [1.0.0]\n\n- orphan\n")
-        .expect("write invalid changelog");
+    fs::write(
+        dir.path().join("CHANGELOG.md"),
+        "# Changelog\n\n## [1.0.0]\n\n- orphan\n",
+    )
+    .expect("write invalid changelog");
 
     bin_cmd()
         .current_dir(dir.path())
