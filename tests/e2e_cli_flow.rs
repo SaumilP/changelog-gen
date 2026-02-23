@@ -5,7 +5,7 @@ use std::process::Command as ProcessCommand;
 use tempfile::tempdir;
 
 fn bin_cmd() -> Command {
-    Command::new(env!("CARGO_BIN_EXE_changelog-gen"))
+    Command::new(env!("CARGO_BIN_EXE_changeloggen-cli"))
 }
 
 fn run_git(dir: &std::path::Path, args: &[&str]) {

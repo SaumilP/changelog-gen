@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-02-17
 
 ### Added
-- Initial release of changelog-gen
+- Initial release of changeloggen-cli
 - Comprehensive error handling system with thiserror integration
 - Conventional Commits support for commit grouping
 - Git repository commit parsing

@@ -1,6 +1,6 @@
 [project]
-name = "changelog-gen"
-repository = "https://github.com/user/changelog-gen"
+name = "changeloggen-cli"
+repository = "https://github.com/user/changeloggen-cli"
 
 [commit_types]
 feat = "✨ Features"

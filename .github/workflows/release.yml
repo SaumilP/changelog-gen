@@ -55,26 +55,26 @@ jobs:
           targets: ${{ matrix.target }}
       - uses: Swatinem/rust-cache@v2
       - name: Build
-        run: cargo build --release --target ${{ matrix.target }} --bin changelog-gen
+        run: cargo build --release --target ${{ matrix.target }} --bin changeloggen-cli
       - name: Package archive (unix)
         if: runner.os != 'Windows'
         shell: bash
         run: |
           mkdir -p dist
-          cp target/${{ matrix.target }}/release/changelog-gen dist/changelog-gen
-          tar -C dist -czf changelog-gen-${{ matrix.target }}.tar.gz changelog-gen
+          cp target/${{ matrix.target }}/release/changeloggen-cli dist/changeloggen-cli
+          tar -C dist -czf changeloggen-cli-${{ matrix.target }}.tar.gz changeloggen-cli
       - name: Package archive (windows)
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path dist | Out-Null
-          Copy-Item target/${{ matrix.target }}/release/changelog-gen.exe dist/changelog-gen.exe
-          Compress-Archive -Path dist/changelog-gen.exe -DestinationPath changelog-gen-${{ matrix.target }}.zip
+          Copy-Item target/${{ matrix.target }}/release/changeloggen-cli.exe dist/changeloggen-cli.exe
+          Compress-Archive -Path dist/changeloggen-cli.exe -DestinationPath changeloggen-cli-${{ matrix.target }}.zip
       - name: Upload archive artifact
         uses: actions/upload-artifact@v4
         with:
-          name: changelog-gen-${{ matrix.target }}
-          path: changelog-gen-${{ matrix.target }}.${{ matrix.archive_ext }}
+          name: changeloggen-cli-${{ matrix.target }}
+          path: changeloggen-cli-${{ matrix.target }}.${{ matrix.archive_ext }}
 
   binstall-smoke:
     name: Binstall Artifact Smoke Check
@@ -90,11 +90,11 @@ jobs:
           set -euo pipefail
           find artifacts -type f -name '*.tar.gz' -print0 | while IFS= read -r -d '' archive; do
             contents=$(tar -tzf "$archive")
-            echo "$contents" | grep -Eq '^changelog-gen$' || { echo "Missing changelog-gen in $archive"; exit 1; }
+            echo "$contents" | grep -Eq '^changeloggen-cli$' || { echo "Missing changeloggen-cli in $archive"; exit 1; }
           done
           find artifacts -type f -name '*.zip' -print0 | while IFS= read -r -d '' archive; do
             contents=$(unzip -Z -1 "$archive")
-            echo "$contents" | grep -Eq '^changelog-gen\.exe$' || { echo "Missing changelog-gen.exe in $archive"; exit 1; }
+            echo "$contents" | grep -Eq '^changeloggen-cli\.exe$' || { echo "Missing changeloggen-cli.exe in $archive"; exit 1; }
           done
 
   create-release:

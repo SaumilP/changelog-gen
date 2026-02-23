@@ -1,17 +1,17 @@
-[![Crates.io](https://img.shields.io/crates/v/changelog-gen.svg)](https://crates.io/crates/changelog-gen)
+[![Crates.io](https://img.shields.io/crates/v/changeloggen-cli.svg)](https://crates.io/crates/changeloggen-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# changelog-gen
+# changeloggen-cli
 
-`changelog-gen` is a Rust CLI for scaffolding, validating, generating, and managing changelog releases from git history.
+`changeloggen-cli` is a Rust CLI for scaffolding, validating, generating, and managing changelog releases from git history.
 
 ## Install
 
 ```bash
-cargo install changelog-gen
+cargo install changeloggen-cli
 ```
 
-GitHub Releases archives are also published in `changelog-gen-{target}.tar.gz` / `.zip` format for `cargo-binstall` compatibility.
+GitHub Releases archives are also published in `changeloggen-cli-{target}.tar.gz` / `.zip` format for `cargo-binstall` compatibility.
 
 ## Core commands
 
@@ -20,7 +20,7 @@ GitHub Releases archives are also published in `changelog-gen-{target}.tar.gz` /
 Create a starter changelog file.
 
 ```bash
-changelog-gen new --file CHANGELOG.md --format markdown
+changeloggen-cli new --file CHANGELOG.md --format markdown
 ```
 
 ### `validate`
@@ -28,7 +28,7 @@ changelog-gen new --file CHANGELOG.md --format markdown
 Validate changelog syntax/semantics (non-zero exit on invalid).
 
 ```bash
-changelog-gen validate --file CHANGELOG.md --strict
+changeloggen-cli validate --file CHANGELOG.md --strict
 ```
 
 ### `generate`
@@ -36,7 +36,7 @@ changelog-gen validate --file CHANGELOG.md --strict
 Generate release notes from git history.
 
 ```bash
-changelog-gen generate \
+changeloggen-cli generate \
   --file CHANGELOG.md \
   --since v1.2.0 \
   --until HEAD \
@@ -56,9 +56,9 @@ Range modes:
 Create/update a release entry in `CHANGELOG.md` using generated notes.
 
 ```bash
-changelog-gen release --version 1.4.0 --file CHANGELOG.md --header default
-changelog-gen release --bump patch --file CHANGELOG.md --header plain
-changelog-gen release --version 1.4.0 --override
+changeloggen-cli release --version 1.4.0 --file CHANGELOG.md --header default
+changeloggen-cli release --bump patch --file CHANGELOG.md --header plain
+changeloggen-cli release --version 1.4.0 --override
 ```
 
 Header presets:
@@ -73,9 +73,9 @@ Header presets:
 Show releases from a changelog file.
 
 ```bash
-changelog-gen show --file CHANGELOG.md --version 1.4.0
-changelog-gen show --file CHANGELOG.md --range 1.2.0..1.4.0
-changelog-gen show --file CHANGELOG.md --range 1.2.0..1.4.0 --converge
+changeloggen-cli show --file CHANGELOG.md --version 1.4.0
+changeloggen-cli show --file CHANGELOG.md --range 1.2.0..1.4.0
+changeloggen-cli show --file CHANGELOG.md --range 1.2.0..1.4.0 --converge
 ```
 
 `--converge` merges selected releases into one deduplicated view.
@@ -85,7 +85,7 @@ changelog-gen show --file CHANGELOG.md --range 1.2.0..1.4.0 --converge
 Remove a release from changelog by version.
 
 ```bash
-changelog-gen remove --version 1.2.3 --file CHANGELOG.md --yes
+changeloggen-cli remove --version 1.2.3 --file CHANGELOG.md --yes
 ```
 
 ## Commit handling rules
@@ -114,8 +114,8 @@ perf = "Performance"
 ## CI usage
 
 ```bash
-changelog-gen validate --strict
-changelog-gen generate --since v1.2.0 --until HEAD --output release-notes.md
+changeloggen-cli validate --strict
+changeloggen-cli generate --since v1.2.0 --until HEAD --output release-notes.md
 ```
 
 More details:

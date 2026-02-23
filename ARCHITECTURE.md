@@ -19,7 +19,7 @@
 
 ## Overview
 
-changelog-gen is a production-grade CLI tool following clean architecture principles with clear separation of concerns, comprehensive error handling, and enterprise-grade CI/CD infrastructure. The architecture emphasizes:
+changeloggen-cli is a production-grade CLI tool following clean architecture principles with clear separation of concerns, comprehensive error handling, and enterprise-grade CI/CD infrastructure. The architecture emphasizes:
 
 - **Modularity**: Well-defined module boundaries with single responsibilities
 - **Type Safety**: Leverages Rust's type system with custom error types
@@ -32,7 +32,7 @@ changelog-gen is a production-grade CLI tool following clean architecture princi
 ## Project Structure
 
 ```
-changelog-gen/
+changeloggen-cli/
 ├── src/
 │   ├── main.rs                 # Entry point with error handling
 │   ├── lib.rs                  # Library root exports
@@ -573,7 +573,7 @@ opt-level = 1          # Some optimization
    - Published to crates.io
 
 4. **Publication**
-   - Available via `cargo install changelog-gen`
+   - Available via `cargo install changeloggen-cli`
    - Binaries on GitHub releases
    - Documentation on docs.rs
 
@@ -774,8 +774,8 @@ Error handling & exit
 
 ```bash
 # Setup
-git clone https://github.com/SaumilP/changelog-gen.git
-cd changelog-gen
+git clone https://github.com/SaumilP/changeloggen-cli.git
+cd changeloggen-cli
 cargo build
 
 # Development cycle
@@ -866,7 +866,7 @@ Example: feat(parser): add conventional commit support
 
 ## Summary
 
-changelog-gen's architecture prioritizes:
+changeloggen-cli's architecture prioritizes:
 
 ✅ **Modularity** - Clear separation of concerns  
 ✅ **Type Safety** - Rust's type system + custom errors  

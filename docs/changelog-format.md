@@ -1,6 +1,6 @@
 # Changelog format
 
-`changelog-gen` reads and writes Markdown with this structure:
+`changeloggen-cli` reads and writes Markdown with this structure:
 
 ```markdown
 # Changelog

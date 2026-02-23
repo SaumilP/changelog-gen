@@ -3,9 +3,9 @@ name = "changeloggen-cli"
 version = "0.1.0"
 edition = "2021"
 authors = ["Saumil Patel <email2saumil2024@gmail.com>"]
-repository = "https://github.com/SaumilP/changelog-gen"
-homepage = "https://github.com/SaumilP/changelog-gen"
-documentation = "https://docs.rs/changelog-gen"
+repository = "https://github.com/SaumilP/changeloggen-cli"
+homepage = "https://github.com/SaumilP/changeloggen-cli"
+documentation = "https://docs.rs/changeloggen-cli"
 readme = "README.md"
 license = "MIT"
 description = "Production-grade Rust CLI to generate changelogs from Git history"
@@ -18,7 +18,7 @@ name = "changelog_gen"
 path = "src/lib.rs"
 
 [[bin]]
-name = "changelog-gen"
+name = "changeloggen-cli"
 path = "src/main.rs"
 required-features = []
 

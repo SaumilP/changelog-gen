@@ -1,11 +1,11 @@
-/// Comprehensive error types for changelog-gen
+/// Comprehensive error types for changeloggen-cli
 ///
-/// This module defines all error variants that can occur when using changelog-gen,
+/// This module defines all error variants that can occur when using changeloggen-cli,
 /// providing clear error messages and error handling capabilities.
 use std::path::PathBuf;
 use thiserror::Error;
 
-/// Main error type for changelog-gen operations
+/// Main error type for changeloggen-cli operations
 #[derive(Error, Debug)]
 pub enum ChangelogError {
     /// Git operations failed

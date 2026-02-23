@@ -1,5 +1,5 @@
-# Cargo metadata for changelog-gen
-name = "changelog-gen"
+# Cargo metadata for changeloggen-cli
+name = "changeloggen-cli"
 version = "0.1.0"
 
 # Extended metadata for registry publishing

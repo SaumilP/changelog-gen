@@ -1,6 +1,6 @@
-# Publishing Guide for changelog-gen
+# Publishing Guide for changeloggen-cli
 
-This document provides comprehensive instructions for publishing and releasing changelog-gen as a production-ready Rust crate.
+This document provides comprehensive instructions for publishing and releasing changeloggen-cli as a production-ready Rust crate.
 
 ## 📋 Pre-Release Checklist
 
@@ -89,7 +89,7 @@ If automated release fails:
    ```
 
 2. Create GitHub release manually:
-   - Go to [Releases](https://github.com/SaumilP/changelog-gen/releases)
+   - Go to [Releases](https://github.com/SaumilP/changeloggen-cli/releases)
    - Click "Create a new release"
    - Enter tag `v0.2.0`
    - Upload built binaries
@@ -124,10 +124,10 @@ git tag v1.1.0-alpha.1
 
 ```bash
 # Check it's on crates.io
-curl https://crates.io/api/v1/crates/changelog-gen | jq '.crate.max_version'
+curl https://crates.io/api/v1/crates/changeloggen-cli | jq '.crate.max_version'
 
 # Check documentation is built
-curl https://docs.rs/changelog-gen/latest/changelog_gen/ --head
+curl https://docs.rs/changeloggen-cli/latest/changelog_gen/ --head
 
 # Verify release on GitHub
 gh release view v0.2.0
@@ -166,15 +166,15 @@ The first time publishing to crates.io requires:
 
 ```toml
 [package]
-name = "changelog-gen"
+name = "changeloggen-cli"
 version = "0.1.0"
 edition = "2021"
 authors = ["Author Name <email@example.com>"]
 license = "MIT"
 description = "Production-grade Rust CLI to generate changelogs from Git history"
-repository = "https://github.com/SaumilP/changelog-gen"
-homepage = "https://github.com/SaumilP/changelog-gen"
-documentation = "https://docs.rs/changelog-gen"
+repository = "https://github.com/SaumilP/changeloggen-cli"
+homepage = "https://github.com/SaumilP/changeloggen-cli"
+documentation = "https://docs.rs/changeloggen-cli"
 readme = "README.md"
 keywords = ["changelog", "git", "devops", "release", "cli"]
 categories = ["command-line-utilities", "development-tools"]
@@ -261,11 +261,11 @@ Ensure artifact names match and are under size limit.
 
 📦 Downloads:
 - GitHub Releases: [Link]
-- crates.io: `cargo install changelog-gen@0.2.0`
+- crates.io: `cargo install changeloggen-cli@0.2.0`
 
-📖 Documentation: https://docs.rs/changelog-gen/0.2.0
+📖 Documentation: https://docs.rs/changeloggen-cli/0.2.0
 
-Thank you for using changelog-gen!
+Thank you for using changeloggen-cli!
 ```
 
 ---

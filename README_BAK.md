@@ -1,4 +1,4 @@
-# 🚀 changelog-gen
+# 🚀 changeloggen-cli
 
 Production-grade Rust CLI to generate beautiful changelogs from Git history.
 
@@ -14,33 +14,33 @@ Production-grade Rust CLI to generate beautiful changelogs from Git history.
 ## 📦 Installation
 
 ```bash
-$> cargo install changelog-gen
+$> cargo install changeloggen-cli
 ```
 
 ## 🔧 Usage
 
 ```bash
-$> changelog-gen --release 1.2.0 --conventional --github
+$> changeloggen-cli --release 1.2.0 --conventional --github
 ```
 
 ### Multi-Command CLI
 
 ```bash
-changelog-gen init
-changelog-gen generate
-changelog-gen release --bump minor
-changelog-gen self-update
+changeloggen-cli init
+changeloggen-cli generate
+changeloggen-cli release --bump minor
+changeloggen-cli self-update
 ```
 
 * Run with structured logs:
 
 ```bash
-RUST_LOG=info ./changelog-gen
+RUST_LOG=info ./changeloggen-cli
 ```
 
 Or JSON logs:
 ```bash
-RUST_LOG=debug ./changelog-gen --json-logs
+RUST_LOG=debug ./changeloggen-cli --json-logs
 ```
 
 

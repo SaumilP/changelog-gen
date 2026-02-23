@@ -1,6 +1,6 @@
-# Contributing to changelog-gen
+# Contributing to changeloggen-cli
 
-Thank you for your interest in contributing to changelog-gen! This document provides guidelines and instructions for contributing.
+Thank you for your interest in contributing to changeloggen-cli! This document provides guidelines and instructions for contributing.
 
 ## Code of Conduct
 
@@ -50,8 +50,8 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 ```bash
 # Clone the repository
-git clone https://github.com/SaumilP/changelog-gen.git
-cd changelog-gen
+git clone https://github.com/SaumilP/changeloggen-cli.git
+cd changeloggen-cli
 
 # Install dependencies and build
 cargo build

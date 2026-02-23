@@ -15,7 +15,7 @@ pub async fn fetch_pr(repo: &str, number: u32) -> Result<PullRequest> {
 
     let res = client
         .get(&url)
-        .header("User-Agent", "changelog-gen")
+        .header("User-Agent", "changeloggen-cli")
         .send()
         .await?
         .json::<PullRequest>()
